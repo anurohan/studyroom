@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply box-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased transition-colors duration-300;
+    @apply bg-gray-50 text-gray-900;
+    @apply dark:bg-surface-dark dark:text-gray-100;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-full;
+  }
+}
+
+/* ─── Components ────────────────────────────────────── */
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+    @apply dark:bg-white/5 dark:border-white/10;
+  }
+
+  /* Primary gradient button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white;
+    @apply bg-gradient-to-r from-primary-600 to-purple-600;
+    @apply hover:from-primary-500 hover:to-purple-500;
+    @apply shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50;
+    @apply transform hover:-translate-y-0.5 transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Secondary ghost button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold;
+    @apply border-2 border-primary-500/50 text-primary-400;
+    @apply hover:border-primary-400 hover:text-primary-300 hover:bg-primary-500/10;
+    @apply transform hover:-translate-y-0.5 transition-all duration-200;
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border transition-all duration-200 font-sans;
+    @apply bg-white border-gray-200 text-gray-900 placeholder-gray-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply dark:bg-surface-card dark:border-surface-border dark:text-gray-100 dark:placeholder-gray-500;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+
+  .badge-red {
+    @apply badge bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .badge-yellow {
+    @apply badge bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-500/20 text-blue-400 border border-blue-500/30;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply glass-card p-6 flex flex-col gap-3;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400;
+    @apply font-medium transition-colors duration-200 relative;
+  }
+
+  /* Section heading */
+  .section-tag {
+    @apply inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4;
+    @apply bg-primary-500/10 text-primary-400 border border-primary-500/20;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────── */
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+
+  .bg-mesh {
+    background-image:
+      radial-gradient(at 40% 20%, hsla(228,100%,74%,0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsla(265,100%,76%,0.12) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, hsla(355,100%,93%,0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, hsla(228,100%,74%,0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(265,100%,76%,0.08) 0px, transparent 50%);
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 25%,
+      rgba(255,255,255,0.08) 50%,
+      transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
